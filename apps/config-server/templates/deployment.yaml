@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}
+  name: { { .Release.Name } }
   labels:
     app: config-server
 
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: { { .Values.replicaCount } }
 
   selector:
     matchLabels:
@@ -21,10 +21,10 @@ spec:
       containers:
         - name: config-server
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: { { .Values.image.pullPolicy } }
 
           ports:
-            - containerPort: {{ .Values.containerPort }}
+            - containerPort: { { .Values.containerPort } }
 
           env:
             - name: SPRING_PROFILES_ACTIVE
@@ -36,6 +36,7 @@ spec:
               port: 8888
             initialDelaySeconds: 20
             periodSeconds: 10
+            failureThreshold: 10
 
           livenessProbe:
             httpGet:
@@ -43,3 +44,4 @@ spec:
               port: 8888
             initialDelaySeconds: 40
             periodSeconds: 20
+            failureThreshold: 5
