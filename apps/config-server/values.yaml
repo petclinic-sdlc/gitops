@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: alihamza9/petclinic-config-server
-  tag: "dummy" # {"$imagepolicy": "flux-system:config-server-policy:tag"}
+  tag: "c3b04838e44ecf6ba17828e6b0b94fb54444eb43" # {"$imagepolicy": "flux-system:config-server-policy:tag"}
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
