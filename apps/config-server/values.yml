@@ -1,0 +1,12 @@
+replicaCount: 1
+
+image:
+  repository: alihamza9/petclinic-config-server
+  tag: "initial" # {"$imagepolicy": "flux-system:config-server-policy"}
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8888
+
+containerPort: 8888

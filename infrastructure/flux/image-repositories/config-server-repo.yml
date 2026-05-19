@@ -1,0 +1,9 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageRepository
+metadata:
+  name: config-server
+  namespace: flux-system
+
+spec:
+  image: alihamza9/petclinic-config-server
+  interval: 1m
