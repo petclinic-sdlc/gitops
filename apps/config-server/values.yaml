@@ -20,3 +20,6 @@ env:
 
   - name: SPRING_CLOUD_CONFIG_SERVER_GIT_CLONE_ON_START
     value: "true"
+
+  - name: SPRING_CLOUD_CONFIG_SERVER_GIT_FORCE_PULL
+    value: "true"
