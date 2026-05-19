@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: alihamza9/petclinic-config-server
-  tag: "initial" # {"$imagepolicy": "flux-system:config-server-policy"}
+  tag: "dummy" # {"$imagepolicy": "flux-system:config-server-policy"}
   pullPolicy: IfNotPresent
 
 service:
