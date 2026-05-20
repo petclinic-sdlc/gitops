@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 
 metadata:
-  name: config-server
+  name: discovery-server
   namespace: petclinic
 
 spec:
@@ -10,7 +10,8 @@ spec:
 
   chart:
     spec:
-      chart: ./apps/config-server
+      chart: ./apps/discovery-server
+
       sourceRef:
         kind: GitRepository
         name: petclinic-gitops
@@ -18,3 +19,14 @@ spec:
 
   values:
     replicaCount: 1
+
+    image:
+      repository: alihamza9/petclinic-discovery-server
+      tag: "dummy"
+      pullPolicy: IfNotPresent
+
+    service:
+      type: ClusterIP
+      port: 8761
+
+    containerPort: 8761

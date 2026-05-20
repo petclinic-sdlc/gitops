@@ -1,0 +1,12 @@
+replicaCount: 1
+
+image:
+  repository: alihamza9/petclinic-discovery-server
+  tag: "dummy" # {"$imagepolicy": "flux-system:discovery-server-policy:tag"}
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8761
+
+containerPort: 8761
