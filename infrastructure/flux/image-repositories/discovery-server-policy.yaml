@@ -12,3 +12,4 @@ spec:
   policy:
     alphabetical:
       order: desc
+git pull --rebase origin main
