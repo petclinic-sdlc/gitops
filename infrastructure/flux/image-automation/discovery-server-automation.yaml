@@ -1,0 +1,33 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+
+metadata:
+  name: discovery-server-automation
+  namespace: flux-system
+
+spec:
+  interval: 1m
+
+  sourceRef:
+    kind: GitRepository
+    name: petclinic-gitops
+
+  git:
+    checkout:
+      ref:
+        branch: main
+
+    commit:
+      author:
+        name: flux-bot
+        email: flux@example.com
+
+      messageTemplate: |
+        Update discovery-server image
+
+    push:
+      branch: main
+
+  update:
+    path: ./
+    strategy: Setters

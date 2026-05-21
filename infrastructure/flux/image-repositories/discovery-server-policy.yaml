@@ -1,0 +1,14 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+
+metadata:
+  name: discovery-server-policy
+  namespace: flux-system
+
+spec:
+  imageRepositoryRef:
+    name: discovery-server-repo
+
+  policy:
+    alphabetical:
+      order: asc

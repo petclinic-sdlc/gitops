@@ -1,6 +1,6 @@
 apiVersion: v2
 name: discovery-server
-description: PetClinic Discovery Server
+description: Spring PetClinic Discovery Server
 type: application
-version: 0.1.1
+version: 0.1.0
 appVersion: "1.0"

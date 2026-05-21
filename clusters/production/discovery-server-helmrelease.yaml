@@ -16,17 +16,3 @@ spec:
         kind: GitRepository
         name: petclinic-gitops
         namespace: flux-system
-
-  values:
-    replicaCount: 1
-
-    image:
-      repository: alihamza9/petclinic-discovery-server
-      tag: "dummy"
-      pullPolicy: IfNotPresent
-
-    service:
-      type: ClusterIP
-      port: 8761
-
-    containerPort: 8761

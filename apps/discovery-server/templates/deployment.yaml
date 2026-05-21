@@ -2,12 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: {{ .Release.Name }}
+  name: { { .Release.Name } }
+
   labels:
     app: discovery-server
 
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: { { .Values.replicaCount } }
 
   selector:
     matchLabels:
@@ -23,15 +24,15 @@ spec:
         - name: discovery-server
 
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+          imagePullPolicy: { { .Values.image.pullPolicy } }
 
           ports:
-            - containerPort: {{ .Values.containerPort }}
+            - containerPort: { { .Values.containerPort } }
 
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: docker
 
-        
-            periodSeconds: 20
-            timeoutSeconds: 10
+            - name: CONFIG_SERVER_URL
+              value: http://config-server:8888
