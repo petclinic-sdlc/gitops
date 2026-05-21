@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: alihamza9/petclinic-discovery-server
-  tag: "f5eafb0cbc741a849caed253749722f03d42dfbc" # {"$imagepolicy": "flux-system:discovery-server-policy:tag"}
+  tag: "6ceba5585f892064dcb5b62fd7ade8bfbcfecaf2" # {"$imagepolicy": "flux-system:discovery-server-policy:tag"}
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
