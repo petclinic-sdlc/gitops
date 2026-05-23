@@ -1,24 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    app: {{ .Chart.Name }}
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+
   template:
     metadata:
       labels:
         app: {{ .Chart.Name }}
+
     spec:
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+
           ports:
             - containerPort: {{ .Values.containerPort }}
+
           env:
             - name: SPRING_PROFILES_ACTIVE
-              value: {{ .Values.config.SPRING_PROFILES_ACTIVE | quote }}
+              value: "docker"
+
             - name: CONFIG_SERVER_URL
-              value: {{ .Values.config.CONFIG_SERVER_URL | quote }}
+              value: "http://config-server:8888"
+
             - name: EUREKA_SERVER_URL
-              value: {{ .Values.config.EUREKA_SERVER_URL | quote }}
+              value: "http://discovery-server:8761/eureka/"
+
             - name: SPRING_DATASOURCE_URL
-              value: {{ .Values.config.SPRING_DATASOURCE_URL | quote }}
+              value: "jdbc:mysql://mysql.petclinic.svc.cluster.local:3306/customersdb"
+
             - name: SPRING_DATASOURCE_USERNAME
-              value: {{ .Values.config.SPRING_DATASOURCE_USERNAME | quote }}
+              value: "petclinic"
+
             - name: SPRING_DATASOURCE_PASSWORD
-              value: {{ .Values.config.SPRING_DATASOURCE_PASSWORD | quote }}
+              value: "petclinic123"
