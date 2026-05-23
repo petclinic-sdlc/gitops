@@ -1,0 +1,21 @@
+image:
+  registry: docker.io
+  repository: mysql
+  tag: 8.0.35
+  pullPolicy: IfNotPresent
+
+architecture: standalone
+
+primary:
+  persistence:
+    enabled: true
+    size: 1Gi
+
+auth:
+  rootPassword: root123
+  username: petclinic
+  password: petclinic123
+  database: customersdb
+
+service:
+  type: ClusterIP
