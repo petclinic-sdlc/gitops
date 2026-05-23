@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: alihamza9/petclinic-vets-service
-  tag: "latest"
+  tag: "dummy" # {"$imagepolicy": "flux-system:vets-service-policy:tag"}
   pullPolicy: IfNotPresent
 
 service:
