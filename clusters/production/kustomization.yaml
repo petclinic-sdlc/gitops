@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - config-server-helmrelease.yaml
   - discovery-server-helmrelease.yaml
+  - customers-service-helmrelease.yaml

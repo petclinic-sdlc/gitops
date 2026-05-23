@@ -1,0 +1,14 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: customers-service
+  namespace: petclinic
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: ./apps/customers-service
+      sourceRef:
+        kind: GitRepository
+        name: petclinic-gitops
+        namespace: flux-system
