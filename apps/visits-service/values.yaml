@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: alihamza9/petclinic-visits-service
-  tag: "" # {"$imagepolicy": "flux-system:visits-service-policy:tag"}
+  tag: "2dd82366de7a26c68cbaa3da80893166cbfd0472" # {"$imagepolicy": "flux-system:visits-service-policy:tag"}
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
