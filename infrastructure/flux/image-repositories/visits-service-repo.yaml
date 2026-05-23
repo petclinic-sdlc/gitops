@@ -1,0 +1,9 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageRepository
+metadata:
+  name: visits-service
+  namespace: flux-system
+
+spec:
+  image: alihamza9/petclinic-visits-service
+  interval: 1m
