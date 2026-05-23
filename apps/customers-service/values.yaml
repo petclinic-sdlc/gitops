@@ -1,16 +1,12 @@
 replicaCount: 1
-
 image:
   repository: alihamza9/petclinic-customers-service
-  tag: "dummy" # {"$imagepolicy": "flux-system:customers-service-policy:tag"}
+  tag: "2b7caf60a7211bead140d7217b57c11aab1bcfbe" # {"$imagepolicy": "flux-system:customers-service-policy:tag"}
   pullPolicy: IfNotPresent
-
 service:
   type: ClusterIP
   port: 8081
-
 containerPort: 8081
-
 config:
   SPRING_PROFILES_ACTIVE: docker
   CONFIG_SERVER_URL: http://config-server:8888
