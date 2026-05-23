@@ -6,3 +6,4 @@ resources:
   - discovery-server-helmrelease.yaml
   - customers-service-helmrelease.yaml
   - visits-service-helmrelease.yaml   
+  - vets-service-helmrelease.yaml
