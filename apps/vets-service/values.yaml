@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: alihamza9/petclinic-vets-service
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8083
+
+containerPort: 8083
+
+env:
+  SPRING_PROFILES_ACTIVE: docker
+  CONFIG_SERVER_URL: http://config-server:8888
+  MYSQL_HOST: mysql
+  MYSQL_PORT: "3306"
+  MYSQL_DATABASE: vetsdb
+  MYSQL_USERNAME: root
+  MYSQL_PASSWORD: rootpassword
