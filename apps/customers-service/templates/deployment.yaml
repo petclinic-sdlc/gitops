@@ -1,0 +1,24 @@
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.containerPort }}
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: {{ .Values.config.SPRING_PROFILES_ACTIVE | quote }}
+            - name: CONFIG_SERVER_URL
+              value: {{ .Values.config.CONFIG_SERVER_URL | quote }}
+            - name: EUREKA_SERVER_URL
+              value: {{ .Values.config.EUREKA_SERVER_URL | quote }}
+            - name: SPRING_DATASOURCE_URL
+              value: {{ .Values.config.SPRING_DATASOURCE_URL | quote }}
+            - name: SPRING_DATASOURCE_USERNAME
+              value: {{ .Values.config.SPRING_DATASOURCE_USERNAME | quote }}
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: {{ .Values.config.SPRING_DATASOURCE_PASSWORD | quote }}
