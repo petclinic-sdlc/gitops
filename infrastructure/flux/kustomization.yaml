@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - image-repositories/config-server-repo.yaml 
+  - image-repositories/config-server-policy.yaml 
+  - image-automation/config-server-automation.yaml 
+  - image-repositories/discovery-server-repo.yaml 
+  - image-repositories/discovery-server-policy.yaml 
+  - image-automation/discovery-server-automation.yaml 
+  - image-repositories/customers-service-repo.yaml 
+  - image-repositories/customers-service-policy.yaml 
+  - image-automation/customers-service-automation.yaml 
+  - image-repositories/visits-service-repo.yaml 
+  - image-repositories/visits-service-policy.yaml 
+  - image-automation/visits-service-automation.yaml 
+  - image-repositories/vets-service-repo.yaml
+  - image-repositories/vets-service-policy.yaml
+  - image-automation/vets-service-automation.yaml
