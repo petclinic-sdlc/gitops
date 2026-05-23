@@ -11,6 +11,8 @@ spec:
   chart:
     spec:
       chart: ./apps/config-server
+      reconcileStrategy: Revision
+      
       sourceRef:
         kind: GitRepository
         name: petclinic-gitops
