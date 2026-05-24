@@ -8,6 +8,8 @@ spec:
   chart:
     spec:
       chart: ./apps/api-gateway
+      reconcileStrategy: Revision
+
       sourceRef:
         kind: GitRepository
         name: petclinic-gitops

@@ -2,7 +2,7 @@ eplicaCount: 1
 
 image:
   repository: alihamza9/petclinic-api-gateway
-  tag: "latest"
+  tag: "dummy" # {"$imagepolicy": "flux-system:api-gateway-policy:tag"}
   pullPolicy: IfNotPresent
 
 service:
