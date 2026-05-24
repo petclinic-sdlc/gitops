@@ -1,17 +1,13 @@
 eplicaCount: 1
-
 image:
   repository: alihamza9/petclinic-api-gateway
-  tag: "dummy" # {"$imagepolicy": "flux-system:api-gateway-policy:tag"}
+  tag: "1baa6954801a29578f1c78920c4b51b50ea72664" # {"$imagepolicy": "flux-system:api-gateway-policy:tag"}
   pullPolicy: IfNotPresent
-
 service:
   type: NodePort
   port: 8080
   nodePort: 30080
-
 containerPort: 8080
-
 env:
   SPRING_PROFILES_ACTIVE: docker
   CONFIG_SERVER_URL: http://config-server:8888
