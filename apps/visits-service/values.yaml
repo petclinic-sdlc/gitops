@@ -10,8 +10,7 @@ containerPort: 8082
 env:
   SPRING_PROFILES_ACTIVE: docker
   CONFIG_SERVER_URL: http://config-server:8888
-  MYSQL_HOST: mysql
-  MYSQL_PORT: "3306"
-  MYSQL_DATABASE: visitsdb
-  MYSQL_USERNAME: root
-  MYSQL_PASSWORD: rootpassword
+
+  SPRING_DATASOURCE_URL: jdbc:mysql://mysql.petclinic.svc.cluster.local:3306/visitsdb
+  SPRING_DATASOURCE_USERNAME: petclinic
+  SPRING_DATASOURCE_PASSWORD: petclinic123

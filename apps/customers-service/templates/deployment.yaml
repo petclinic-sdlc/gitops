@@ -43,4 +43,4 @@ spec:
               value: "petclinic"
 
             - name: SPRING_DATASOURCE_PASSWORD
-              value: "petclinic123"
+              value: "petclinic123" 
