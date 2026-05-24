@@ -1,0 +1,17 @@
+eplicaCount: 1
+
+image:
+  repository: alihamza9/petclinic-api-gateway
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 8080
+  nodePort: 30080
+
+containerPort: 8080
+
+env:
+  SPRING_PROFILES_ACTIVE: docker
+  CONFIG_SERVER_URL: http://config-server:8888

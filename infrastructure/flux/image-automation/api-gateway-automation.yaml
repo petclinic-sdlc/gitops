@@ -1,0 +1,32 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageUpdateAutomation
+metadata:
+  name: api-gateway-automation
+  namespace: flux-system
+
+spec:
+  interval: 1m
+
+  sourceRef:
+    kind: GitRepository
+    name: petclinic-gitops
+
+  git:
+    checkout:
+      ref:
+        branch: main
+
+    commit:
+      author:
+        name: fluxcd
+        email: fluxcd@users.noreply.github.com
+
+      messageTemplate: |
+        chore: update api-gateway image tag
+
+    push:
+      branch: main
+
+  update:
+    strategy: Setters
+    path: ./

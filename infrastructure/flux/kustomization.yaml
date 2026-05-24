@@ -16,3 +16,6 @@ resources:
   - image-repositories/vets-service-repo.yaml
   - image-repositories/vets-service-policy.yaml
   - image-automation/vets-service-automation.yaml
+  - image-repositories/api-gateway-repo.yaml
+  - image-repositories/api-gateway-policy.yaml 
+  - image-automation/api-gateway-automation.yaml 
