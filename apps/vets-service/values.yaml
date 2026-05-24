@@ -14,3 +14,4 @@ env:
   SPRING_DATASOURCE_URL: jdbc:mysql://mysql.petclinic.svc.cluster.local:3306/vetsdb
   SPRING_DATASOURCE_USERNAME: petclinic
   SPRING_DATASOURCE_PASSWORD: petclinic123
+  SPRING_JPA_HIBERNATE_DDL_AUTO: update

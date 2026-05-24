@@ -21,15 +21,18 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: {{ .Values.env.SPRING_PROFILES_ACTIVE | quote }}
+
             - name: CONFIG_SERVER_URL
               value: {{ .Values.env.CONFIG_SERVER_URL | quote }}
-            - name: MYSQL_HOST
-              value: {{ .Values.env.MYSQL_HOST | quote }}
-            - name: MYSQL_PORT
-              value: {{ .Values.env.MYSQL_PORT | quote }}
-            - name: MYSQL_DATABASE
-              value: {{ .Values.env.MYSQL_DATABASE | quote }}
-            - name: MYSQL_USERNAME
-              value: {{ .Values.env.MYSQL_USERNAME | quote }}
-            - name: MYSQL_PASSWORD
-              value: {{ .Values.env.MYSQL_PASSWORD | quote }}
+
+            - name: SPRING_DATASOURCE_URL
+              value: {{ .Values.env.SPRING_DATASOURCE_URL | quote }}
+
+            - name: SPRING_DATASOURCE_USERNAME
+              value: {{ .Values.env.SPRING_DATASOURCE_USERNAME | quote }}
+
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: {{ .Values.env.SPRING_DATASOURCE_PASSWORD | quote }}
+
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              value: {{ .Values.env.SPRING_JPA_HIBERNATE_DDL_AUTO | default "update" | quote }}

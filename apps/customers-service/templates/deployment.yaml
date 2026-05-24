@@ -28,19 +28,22 @@ spec:
 
           env:
             - name: SPRING_PROFILES_ACTIVE
-              value: "docker"
-
+              value: {{ .Values.config.SPRING_PROFILES_ACTIVE | quote }}
+          
             - name: CONFIG_SERVER_URL
-              value: "http://config-server:8888"
-
+              value: {{ .Values.config.CONFIG_SERVER_URL | quote }}
+          
             - name: EUREKA_SERVER_URL
-              value: "http://discovery-server:8761/eureka/"
-
+              value: {{ .Values.config.EUREKA_SERVER_URL | quote }}
+          
             - name: SPRING_DATASOURCE_URL
-              value: "jdbc:mysql://mysql.petclinic.svc.cluster.local:3306/customersdb"
-
+              value: {{ .Values.config.SPRING_DATASOURCE_URL | quote }}
+          
             - name: SPRING_DATASOURCE_USERNAME
-              value: "petclinic"
-
+              value: {{ .Values.config.SPRING_DATASOURCE_USERNAME | quote }}
+          
             - name: SPRING_DATASOURCE_PASSWORD
-              value: "petclinic123" 
+              value: {{ .Values.config.SPRING_DATASOURCE_PASSWORD | quote }}
+          
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              value: {{ .Values.config.SPRING_JPA_HIBERNATE_DDL_AUTO | default "update" | quote }}
