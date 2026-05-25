@@ -37,8 +37,8 @@ spec:
             - name: SPRING_JPA_HIBERNATE_DDL_AUTO
               value: {{ .Values.env.SPRING_JPA_HIBERNATE_DDL_AUTO | default "update" | quote }}
 
-            - name: MANAGEMENT_TRACING_SAMPLING_PROBABILITY
+            - name: SPRING_ZIPKIN_BASE_URL
+              value: "http://tempo.monitoring.svc.cluster.local:9411"
+
+            - name: SPRING_SLEUTH_SAMPLER_PROBABILITY
               value: "1.0"
-              
-            - name: MANAGEMENT_ZIPKIN_TRACING_ENDPOINT
-              value: "http://tempo.monitoring.svc.cluster.local:9411/api/v2/spans"

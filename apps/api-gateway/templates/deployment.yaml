@@ -23,7 +23,7 @@ spec:
               value: {{ .Values.env.SPRING_PROFILES_ACTIVE | quote }}
             - name: CONFIG_SERVER_URL
               value: {{ .Values.env.CONFIG_SERVER_URL | quote }}
-            - name: MANAGEMENT_TRACING_SAMPLING_PROBABILITY
+            - name: SPRING_ZIPKIN_BASE_URL
+              value: "http://tempo.monitoring.svc.cluster.local:9411"
+            - name: SPRING_SLEUTH_SAMPLER_PROBABILITY
               value: "1.0"
-            - name: MANAGEMENT_ZIPKIN_TRACING_ENDPOINT
-              value: "http://tempo.monitoring.svc.cluster.local:9411/api/v2/spans"
