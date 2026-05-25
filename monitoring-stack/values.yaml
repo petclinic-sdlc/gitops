@@ -1,0 +1,47 @@
+grafana:
+  adminPassword: admin123
+
+persistence:
+  enabled: false
+
+prometheus:
+  prometheusSpec:
+    retention: 6h
+
+storageSpec: null
+
+scrapeInterval: 15s
+
+resources:
+  requests:
+    memory: 400Mi
+    cpu: 200m
+
+  limits:
+    memory: 800Mi
+    cpu: 500m
+
+alertmanager:
+  enabled: false
+
+kubeEtcd:
+  enabled: false
+
+kubeScheduler:
+  enabled: false
+
+kubeControllerManager:
+  enabled: false
+
+coreDns:
+  enabled: false
+
+kubeProxy:
+  enabled: false
+
+nodeExporter:
+  enabled: true
+
+kubeStateMetrics:
+  enabled: true
+
