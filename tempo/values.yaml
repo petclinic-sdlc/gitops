@@ -1,30 +1,17 @@
 tempo:
-  retention: 6h
+  repository: grafana/tempo
+  tag: 2.9.0
 
-  structuredConfig:
-    server:
-      http_listen_port: 3200
+multitenancyEnabled: false
 
-    distributor:
-      receivers:
-        zipkin:
-          protocols:
-            http:
-              endpoint: 0.0.0.0:9411
-
-    ingester: {}
-
-    storage:
-      trace:
-        backend: local
-        local:
-          path: /var/tempo/traces
-
-    querier: {}
-    query_frontend: {}
+tempoQuery:
+  enabled: false
 
 persistence:
   enabled: false
+
+service:
+  type: ClusterIP
 
 resources:
   requests:
@@ -32,3 +19,34 @@ resources:
     memory: 128Mi
   limits:
     memory: 256Mi
+
+config: |
+  server:
+    http_listen_port: 3200
+
+  distributor:
+    receivers:
+      zipkin:
+        protocols:
+          http:
+            endpoint: 0.0.0.0:9411
+
+  ingester:
+    trace_idle_period: 10s
+    max_block_duration: 5m
+
+  compactor:
+    compaction:
+      block_retention: 6h
+
+  storage:
+    trace:
+      backend: local
+      local:
+        path: /tmp/tempo/traces
+      wal:
+        path: /tmp/tempo/wal
+
+  querier: {}
+
+  query_frontend: {}
