@@ -5,6 +5,7 @@ tempo:
   structuredConfig:
     receivers:
       zipkin:
+        enabled: true 
         protocols:
           http: {}
 
@@ -17,7 +18,6 @@ tempo:
     distributor:
       receivers:
         zipkin:
-          enabled: true 
 
 persistence:
   enabled: false
