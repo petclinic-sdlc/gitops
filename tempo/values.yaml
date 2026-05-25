@@ -9,12 +9,10 @@ tempo:
       receivers:
         zipkin:
           protocols:
-            http: {}
+            http:
+              endpoint: 0.0.0.0:9411
 
-    ingester:
-      trace_idle_period: 10s
-      max_block_bytes: 1000000
-      max_block_duration: 5m
+    ingester: {}
 
     storage:
       trace:
@@ -24,9 +22,6 @@ tempo:
 
     querier: {}
     query_frontend: {}
-
-    overrides:
-      defaults: {}
 
 persistence:
   enabled: false
