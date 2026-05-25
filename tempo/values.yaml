@@ -1,17 +1,7 @@
-tempo:
-  repository: grafana/tempo
-  tag: 2.9.0
-
 multitenancyEnabled: false
-
-tempoQuery:
-  enabled: false
 
 persistence:
   enabled: false
-
-service:
-  type: ClusterIP
 
 resources:
   requests:
@@ -20,6 +10,9 @@ resources:
   limits:
     memory: 256Mi
 
+tempoQuery:
+  enabled: false
+
 config: |
   server:
     http_listen_port: 3200
@@ -27,13 +20,9 @@ config: |
   distributor:
     receivers:
       zipkin:
-        protocols:
-          http:
-            endpoint: 0.0.0.0:9411
+        endpoint: 0.0.0.0:9411
 
-  ingester:
-    trace_idle_period: 10s
-    max_block_duration: 5m
+  ingester: {}
 
   compactor:
     compaction:
