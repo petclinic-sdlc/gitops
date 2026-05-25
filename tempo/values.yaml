@@ -2,16 +2,25 @@ tempo:
   retention: 6h
   extraArgs:
     config.expand-env: true
+  structuredConfig:
+    receivers:
+      zipkin:
+        protocols:
+          http: {}
+
+    storage:
+      trace:
+        backend: local
+        local:
+          path: /var/tempo/traces
+
+    distributor:
+      receivers:
+        zipkin:
+          enabled: true 
 
 persistence:
   enabled: false
-
-tempoQuery:
-  enabled: true
-
-receivers:
-  zipkin:
-    enabled: true
 
 resources:
   requests:
