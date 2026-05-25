@@ -40,7 +40,7 @@ spec:
             - name: MANAGEMENT_TRACING_SAMPLING_PROBABILITY
               value: "1.0"
               
-            - name: MANAGEMENT_EXPORT_ZIPKIN_ENDPOINT
+            - name: MANAGEMENT_TRACING_EXPORT_ZIPKIN_ENDPOINT
               value: "http://tempo.monitoring.svc.cluster.local:9411/api/v2/spans"
 
             - name: SPRING_CLOUD_CONFIG_OVERRIDESYSTEMPROPERTIES
