@@ -3,7 +3,8 @@ tempo:
 
   receivers:
     zipkin:
-      enabled: true
+      protocols:
+        http: {}
 
   storage:
     trace:
