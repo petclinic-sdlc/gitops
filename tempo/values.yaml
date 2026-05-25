@@ -1,8 +1,17 @@
 tempo:
   retention: 6h
+  extraArgs:
+    config.expand-env: true
 
 persistence:
   enabled: false
+
+tempoQuery:
+  enabled: true
+
+receivers:
+  zipkin:
+    enabled: true
 
 resources:
   requests:
