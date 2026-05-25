@@ -1,0 +1,12 @@
+tempo:
+  retention: 6h
+
+persistence:
+  enabled: false
+
+resources:
+  requests:
+    memory: 128Mi
+    cpu: 100m
+  limits:
+    memory: 256Mi
