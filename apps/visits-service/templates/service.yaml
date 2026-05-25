@@ -6,7 +6,8 @@ spec:
   selector:
     app: visits-service
   ports:
-    - protocol: TCP
+    - name: http 
+      protocol: TCP
       port: {{ .Values.service.port }}
       targetPort: {{ .Values.containerPort }}
   type: {{ .Values.service.type }}
