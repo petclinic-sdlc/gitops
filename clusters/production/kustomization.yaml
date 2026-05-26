@@ -9,3 +9,4 @@ resources:
   - vets-service-helmrelease.yaml
   - api-gateway-helmrelease.yaml 
   - image-resources.yaml 
+  - monitoring.yaml 
