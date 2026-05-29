@@ -4,19 +4,19 @@ metadata:
   name: api-gateway
 spec:
   replicas: {{ .Values.replicaCount }}
-  selector:
-    matchLabels:
-      app: api-gateway
-  template:
-    metadata:
-      labels:
-        app: api-gateway
-    spec:
-      containers:
+  selector: # Tells the Deployment how to identify which Pods it is responsible for managing
+    matchLabels: # Uses labels to select Pods
+      app: api-gateway # The Deployment will manage any Pod that has this label
+  template: # This is the blueprint (template) used to create new Pods
+    metadata: # Metadata for the Pods that will be created
+      labels: # Labels attached to each Pod created by this Deployment
+        app: api-gateway # deploymentSame label as in the selector (this is required for the selector to work)
+    spec:  # Specification for each Pod
+      containers: # List of containers inside each Pod
         - name: api-gateway
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
+          ports: # Ports that the container exposes
             - containerPort: {{ .Values.containerPort }}
           env:
             - name: SPRING_PROFILES_ACTIVE
